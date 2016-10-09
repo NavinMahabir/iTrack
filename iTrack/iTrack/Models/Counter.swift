@@ -45,6 +45,19 @@ class Counter {
         lastUpdate = counts[counts.count].date
     }
     
+    func setCounter(newValue:Int){
+        if (counts.count > newValue){
+            for _ in newValue...counts.count {
+                self.decrementCounter()
+            }
+        }
+        else{
+            for _ in counts.count...newValue {
+                self.incrementCounter()
+            }
+        }
+    }
+    
     func renameCounter(newName:String) {
         if (!name.isEmpty){
             self.name = newName
